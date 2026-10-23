@@ -45,6 +45,12 @@ Anmelden kann sich nur, wer vorher unter **users** mit derselben E-Mail-Adresse 
 
 Erneuerte Zertifikate übernimmt das Add-on selbst (Prüfung einmal pro Stunde).
 
+## Fotos
+
+Fotos aus dem Tagebuch lädt die Reisekarte verkleinert (höchstens 1600 Pixel) in die Tabelle **photos** hoch.
+Andere Geräte laden sie bei Bedarf herunter. Abrufen kann sie nur, wer angemeldet ist und die Reise sehen darf.
+Wird ein Eintrag gelöscht, verschwinden auch seine Fotos vom Server; wird eine Reise gelöscht, alle ihre Fotos.
+
 ## Daten und Backup
 
 Alle Daten liegen im Add-on (`/data/pb_data`) und sind in den normalen Home-Assistant-Backups enthalten.
