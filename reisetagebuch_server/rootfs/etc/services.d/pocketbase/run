@@ -1,0 +1,16 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# PocketBase starten (nur lokal erreichbar, nach außen geht es über nginx)
+# ==============================================================================
+
+bashio::log.info "Starte PocketBase..."
+bashio::log.info "Admin-Oberfläche: https://<deine-domain>:$(bashio::addon.port '8091/tcp')/_/"
+bashio::log.info "Beim ersten Start steht unten ein Link zum Anlegen des Admins."
+bashio::log.info "Ersetze darin http://127.0.0.1:8090 durch deine HTTPS-Adresse."
+
+exec /opt/pocketbase/pocketbase serve \
+    --http 127.0.0.1:8090 \
+    --dir /data/pb_data \
+    --migrationsDir /opt/pocketbase/pb_migrations \
+    --hooksDir /opt/pocketbase/pb_hooks \
+    --hooksWatch=false

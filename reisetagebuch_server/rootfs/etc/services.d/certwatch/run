@@ -1,0 +1,17 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Erneuerte Zertifikate übernehmen: stündlich prüfen und nginx neu laden
+# ==============================================================================
+
+CERTFILE="/ssl/$(bashio::config 'certfile')"
+last="$(stat -c %Y "${CERTFILE}" 2>/dev/null)"
+
+while true; do
+    sleep 3600
+    now="$(stat -c %Y "${CERTFILE}" 2>/dev/null)"
+    if [[ "${now}" != "${last}" ]]; then
+        bashio::log.info "Zertifikat wurde erneuert, lade nginx neu."
+        nginx -c /etc/nginx/reisetagebuch.conf -s reload || bashio::log.warning "nginx konnte nicht neu geladen werden."
+        last="${now}"
+    fi
+done

@@ -1,0 +1,17 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# nginx: HTTPS mit den Let's-Encrypt-Zertifikaten aus /ssl, leitet an PocketBase
+# ==============================================================================
+
+CERTFILE="/ssl/$(bashio::config 'certfile')"
+KEYFILE="/ssl/$(bashio::config 'keyfile')"
+
+if ! bashio::fs.file_exists "${CERTFILE}" || ! bashio::fs.file_exists "${KEYFILE}"; then
+    bashio::exit.nok "Zertifikat nicht gefunden: ${CERTFILE} / ${KEYFILE}. Läuft das DuckDNS-Add-on mit Let's Encrypt?"
+fi
+
+sed -e "s|%%CERTFILE%%|${CERTFILE}|" -e "s|%%KEYFILE%%|${KEYFILE}|" \
+    /etc/nginx/reisetagebuch.conf.tpl > /etc/nginx/reisetagebuch.conf
+
+bashio::log.info "Starte nginx auf Port 8091 (HTTPS)..."
+exec nginx -c /etc/nginx/reisetagebuch.conf

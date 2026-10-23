@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Stürzt nginx ab, wird das ganze Add-on beendet (der Watchdog startet es neu)
+# ==============================================================================
+
+if [[ "${1}" -ne 0 ]] && [[ "${1}" -ne 256 ]]; then
+    bashio::log.warning "nginx wurde mit Code ${1} beendet, stoppe das Add-on."
+    exec /run/s6/basedir/bin/halt
+fi
