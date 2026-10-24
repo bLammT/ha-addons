@@ -1,5 +1,5 @@
 name: Reisetagebuch Server
-version: "0.2.0"
+version: "0.3.0"
 slug: reisetagebuch_server
 description: Login und Synchronisation für die Reisekarte (PocketBase hinter HTTPS)
 url: https://github.com/bLammT/ha-addons/tree/main/reisetagebuch_server

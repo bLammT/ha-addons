@@ -20,12 +20,15 @@ Technisch ist das [PocketBase](https://pocketbase.io) (Datenbank mit Benutzerver
 4. In der Reisekarte auf **Online-Sync** tippen, die Adresse `https://DEINNAME.duckdns.org:8091` eintragen, anmelden und
    „… online speichern“ wählen. Auf weiteren Geräten anmelden und die Reise unter „Online-Reisen“ öffnen.
 
-## Mitreisende
+## Teilen und Mitreisende
 
-1. In der Admin-Oberfläche unter **users** ein Konto für die Person anlegen.
-2. Unter **trips** die Reise öffnen und die Person bei **members** hinzufügen.
+Am einfachsten direkt in der Reisekarte: **Online-Sync → Teilen**. Dort lädst du Personen per E-Mail ein, entweder
+zum **Mitbearbeiten** oder **nur zum Lesen** (sieht Reise, Karte, Tagebuch und Fotos, ändert aber nichts).
+Gibt es für die E-Mail noch kein Konto, kannst du es dabei mit einem Start-Passwort anlegen und der Person mitteilen.
+Teilen kann nur, wer die Reise angelegt hat.
 
-Mitglieder dürfen die Reise sehen und bearbeiten, aber nicht löschen und keine weiteren Mitglieder eintragen.
+Alternativ in der Admin-Oberfläche: unter **trips** die Reise öffnen und Personen bei **members** (bearbeiten)
+oder **viewers** (nur lesen) eintragen.
 
 ## Login mit Google (optional)
 
